@@ -1,0 +1,54 @@
+baseURL = "https://www.aeieli.com/"
+locale = "zh-cn"
+defaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
+title = "洞悉码码家"
+theme = "PaperMod"
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "想洞洞察察世界的小码农"
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  [params.homeInfoParams]
+    Title = "洞悉码码家"
+    Content = "想洞洞察察世界的小码农"
+  [params.assets]
+    favicon = "/favicon.webp"
+    apple_touch_icon = "/wp-content/uploads/2024/06/cropped-3a5a90ce-3285-42cc-af8f-dd8aea28af7f-180x180.webp"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+  name = "分类"
+  url = "/categories/"
+  weight = 10
+[[menu.main]]
+  name = "标签"
+  url = "/tags/"
+  weight = 20
+[[menu.main]]
+  name = "归档"
+  url = "/archives/"
+  weight = 30
+[[menu.main]]
+  name = "搜索"
+  url = "/search/"
+  weight = 40
+[[menu.main]]
+  name = "关于"
+  url = "/求知路无止境，人生苦短/"
+  weight = 50
+
+[markup.goldmark.renderer]
+  unsafe = true
+[markup.highlight]
+  noClasses = false
