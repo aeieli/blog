@@ -1,6 +1,6 @@
 // 一次性迁移脚本：WordPress 导出的 posts.json → Hugo content/
 // 用法：NODE_PATH=<含 turndown 的 node_modules> node tools/wp2hugo.mjs posts.json content
-// posts.json 由 mariadb json_arrayagg 导出（字段见 README）
+// posts.json 由 mariadb json_arrayagg 从 wp_posts 导出（已发布的 post/page，含分类与标签）
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
