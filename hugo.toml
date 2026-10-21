@@ -25,7 +25,18 @@ enableRobotsTXT = true
     apple_touch_icon = "/wp-content/uploads/2024/06/cropped-3a5a90ce-3285-42cc-af8f-dd8aea28af7f-180x180.webp"
 
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON", "FEED"]
+
+# 兼容旧 WordPress 的 /feed/ 订阅地址：GitHub Pages 不能做服务端重定向，
+# 于是在 /feed/index.html 再输出一份 RSS（自定义 mediaType 避免被当 HTML 压缩）
+[mediaTypes."application/x-rss-html"]
+  suffixes = ["html"]
+[outputFormats.FEED]
+  mediaType = "application/x-rss-html"
+  baseName = "index"
+  path = "feed"
+  isPlainText = true
+  notAlternative = true
 
 [[menu.main]]
   name = "分类"
@@ -52,3 +63,7 @@ enableRobotsTXT = true
   unsafe = true
 [markup.highlight]
   noClasses = false
+
+# HTML 压缩器按 .html 后缀生效，会把 /feed/index.html 里的 RSS 压坏，故关闭
+[minify]
+  disableHTML = true
